@@ -1,0 +1,13 @@
+app:
+  TimeZone: Asia/Tehran
+  Port: "4444"
+  Url: localhost
+  GIN_MODE: debug
+db:
+  Sqlite:
+    Name: Apis
+grpc:
+  Uri: "localhost"
+  Port: "50051"
+
+
