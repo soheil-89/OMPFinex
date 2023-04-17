@@ -4,4 +4,5 @@ GrpcServer/.idea
 #GrpcServer/*.yaml
 Apis/*.db
 GrpcServer/*.db
+.idea
 
