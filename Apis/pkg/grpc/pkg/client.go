@@ -10,14 +10,22 @@ import (
 	"time"
 )
 
-type Data struct {
+type data struct {
 	*validation.Chunk
 }
 
-func (d Data) Request(sha256 string) (bool, string) {
+func NewData(chunk validation.Chunk) *data {
+	return &data{&validation.Chunk{
+		Id:   chunk.Id,
+		Size: chunk.Size,
+		Data: chunk.Data,
+	}}
+}
+
+func (d *data) Request(sha256 string, size int32) (bool, error) {
 	conn, err := grpc.Dial(config.Env.Grpc.Uri+":"+config.Env.Grpc.Port, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		return false, err.Error()
+		return false, err
 	}
 	defer conn.Close()
 	c := ChunkPb.NewChunkClient(conn)
@@ -26,10 +34,11 @@ func (d Data) Request(sha256 string) (bool, string) {
 	ctx, cancel := context.WithTimeout(context.Background(), time.Second)
 	defer cancel()
 	r, err := c.Send(ctx, &ChunkPb.ChunkRequest{
-		Sha256: sha256,
-		Id:     d.Id,
-		Size:   d.Size,
-		Data:   d.Data,
+		Sha256:    sha256,
+		Id:        d.Id,
+		Size:      size,
+		Data:      d.Data,
+		ChunkSize: d.Size,
 	})
-	return r.Receive, err.Error()
+	return r.Receive, err
 }

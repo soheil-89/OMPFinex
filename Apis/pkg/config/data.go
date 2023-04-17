@@ -7,9 +7,13 @@ import (
 var Env = newEnvData()
 
 type envData struct {
-	App  app
-	Db   db
-	Grpc grpc
+	App         app
+	Db          db
+	Grpc        grpc
+	PublicFiles publicFiles
+}
+type publicFiles struct {
+	Path string
 }
 type app struct {
 	TimeZone string
@@ -46,6 +50,9 @@ func newEnvData() *envData {
 		Grpc: grpc{
 			Uri:  env.Get("grpc.Uri").(string),
 			Port: env.Get("grpc.Port").(string),
+		},
+		PublicFiles: publicFiles{
+			Path: env.Get("publicFiles.path").(string),
 		},
 	}
 }

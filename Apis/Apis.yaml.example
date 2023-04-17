@@ -9,5 +9,5 @@ db:
 grpc:
   Uri: "localhost"
   Port: "50051"
-
-
+publicFiles:
+  path: /home/soheil/go/OMPFinex/files/

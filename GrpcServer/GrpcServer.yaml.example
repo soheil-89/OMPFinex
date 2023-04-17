@@ -1,0 +1,10 @@
+grpc:
+  Uri: "localhost"
+  Port: "50051"
+db:
+  Sqlite:
+    Name: Apis
+publicFiles:
+  path: /home/soheil/go/OMPFinex/files/
+
+

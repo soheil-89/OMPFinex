@@ -11,7 +11,7 @@ import (
 func main() {
 	r := gin.Default()
 	r.POST("/image", handlers.Register)
-	r.POST("/image/:sha256/chunk", handlers.Chunk)
+	r.POST("/image/:sha256/chunks", handlers.Chunk)
 	r.GET("/image/:sha256", handlers.Download)
 	err := r.Run(":" + config.Env.App.Port)
 	if err != nil {
