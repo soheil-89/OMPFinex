@@ -1,7 +1,7 @@
 Apis/.idea
 GrpcServer/.idea
-Apis/*.yaml
-GrpcServer/*.yaml
+#Apis/*.yaml
+#GrpcServer/*.yaml
 Apis/*.db
 GrpcServer/*.db
 

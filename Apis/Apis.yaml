@@ -1,0 +1,15 @@
+app:
+  TimeZone: Asia/Tehran
+  Port: "4444"
+  Url: localhost
+  GIN_MODE: debug
+db:
+  Sqlite:
+    Name: Apis
+grpc:
+  Uri: "grpc_server"
+  Port: "50051"
+publicFiles:
+  path: /usr/src/go/files/
+
+

@@ -1,0 +1,10 @@
+grpc:
+  Uri: "localhost"
+  Port: "50051"
+db:
+  Sqlite:
+    Name: GrpcServer
+publicFiles:
+  path: /usr/src/go/files/
+
+
