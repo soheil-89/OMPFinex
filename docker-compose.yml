@@ -1,0 +1,14 @@
+version: '3'
+services:
+  apis:
+    container_name: apis
+    build: Apis
+    ports:
+      - "4444:4444"
+    volumes:
+      - ./files:/usr/src/go/files
+  grpc_server:
+    container_name: grpc_server
+    build: GrpcServer
+    volumes:
+      - ./files:/usr/src/go/files
