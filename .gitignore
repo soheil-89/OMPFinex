@@ -3,5 +3,6 @@ GrpcServer/.idea
 Apis/*.yaml
 GrpcServer/*.yaml
 Apis/*.db
+GrpcServer/*.db
 files
 
